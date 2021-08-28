@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/parent">
 
     <EditText
         android:id="@+id/editName"
@@ -90,6 +91,7 @@
         android:layout_marginTop="10dp"
         android:text="Please enter your name"
         android:textColor="#DD0C0C"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -102,6 +104,7 @@
         android:layout_marginTop="15dp"
         android:text="Please enter your email"
         android:textColor="#DD0C0C"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -126,6 +129,7 @@
         android:layout_marginTop="15dp"
         android:text="Please enter your mobile"
         android:textColor="#DD0C0C"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -204,6 +208,7 @@
         android:layout_marginRight="24dp"
         android:text="You must agree to the\n conditions"
         android:textColor="#DD0C0C"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toEndOf="@+id/txtAgreement"
         app:layout_constraintTop_toTopOf="@+id/txtAgreement" />
