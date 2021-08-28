@@ -15,13 +15,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", floor=" + floor +
-                ", block=" + block +
-                '}';
+        return "Student: " + name +
+                " with email " + email +
+                "and phone " + phone +
+                "has Floor " + floor +
+                "and Block " + block;
     }
 
     // getters and setters
