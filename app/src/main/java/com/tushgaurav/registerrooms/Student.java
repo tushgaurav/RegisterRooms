@@ -4,6 +4,9 @@ public class Student {
     private String name, email, phone;
     private int floor;
     private char block;
+    private int totalRooms = 100;
+    private int roomsRegistered = 0;
+    private int roomsLeft;
 
     public Student(String name, String email, String phone, int floor, char block) {
         this.name = name;
@@ -11,6 +14,8 @@ public class Student {
         this.phone = phone;
         this.floor = floor;
         this.block = block;
+
+        roomsRegistered++;
     }
 
     @Override
@@ -63,5 +68,10 @@ public class Student {
         this.block = block;
     }
 
+    // rooms left
+    public String roomsLeft() {
+        roomsLeft = totalRooms - roomsRegistered;
+        return Integer.toString(roomsLeft);
+    }
 
 }
