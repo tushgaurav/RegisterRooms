@@ -238,4 +238,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_begin="379dp" />
 
+    <TextView
+        android:id="@+id/txtEmptyRooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Empty Rooms"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toEndOf="@+id/editName"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/txtRoomLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        app:layout_constraintEnd_toEndOf="@+id/txtEmptyRooms"
+        app:layout_constraintStart_toStartOf="@+id/txtEmptyRooms"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmptyRooms" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
