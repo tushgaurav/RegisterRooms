@@ -16,7 +16,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editName, editPhone, editEmail;
-    private TextView txtWarnName, txtWarnEmail, txtWarnMobile, txtWarnAgreement, txtAgreement;
+    private TextView txtWarnName, txtWarnEmail, txtWarnMobile, txtWarnAgreement, txtAgreement, txtRoomsLeft;
     private Button btnSubmit, btnReset;
     private CheckBox agreementCheck;
     private ConstraintLayout parent;
@@ -52,17 +52,28 @@ public class MainActivity extends AppCompatActivity {
         txtWarnMobile = findViewById(R.id.txtWarnMobile);
         txtWarnAgreement = findViewById(R.id.txtWarnAgreement);
 
+        txtRoomsLeft = findViewById(R.id.txtRoomLeft);
+
         txtAgreement = findViewById(R.id.txtAgreement);
         agreementCheck = findViewById(R.id.chAccept);
 
         btnReset = null;
         btnSubmit = findViewById(R.id.btnSubmit);
+
+
+
     }
 
     private void initRegister() {
         if (validateData()) {
             if (agreementCheck.isChecked()) {
-                showSnackBar("Student Registered", "View");
+                boolean final_result = submitData();
+                if (final_result) {
+                    showSnackBar("Student Registered", "View");
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                }
             } else {
                 Toast.makeText(this, "You need to agree to the conditions", Toast.LENGTH_SHORT).show();
             }
@@ -117,8 +128,15 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    private void roomsLeftUpdater() {
+        txtRoomsLeft.setText(student.roomsLeft());
+    }
+
     private boolean submitData() {
-        //TODO implement a data submission algo
-        return true;
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
+        boolean success = dataBaseHelper.addStudent(student);
+        roomsLeftUpdater();
+        
+        return success;
     }
 }
