@@ -3,6 +3,7 @@ package com.tushgaurav.registerrooms;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
     private EditText editName, editPhone, editEmail;
     private TextView txtWarnName, txtWarnEmail, txtWarnMobile, txtWarnAgreement, txtAgreement, txtRoomsLeft;
-    private Button btnSubmit, btnReset;
+    private Button btnSubmit, btnRegisteredStudents;
     private CheckBox agreementCheck;
     private ConstraintLayout parent;
     private Student student;
@@ -36,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                initRegister();
+            }
+        });
+
+        btnRegisteredStudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeActivityViewAll();
             }
         });
     }
@@ -57,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
         txtAgreement = findViewById(R.id.txtAgreement);
         agreementCheck = findViewById(R.id.chAccept);
 
-        btnReset = null;
+//        btnReset = null;
         btnSubmit = findViewById(R.id.btnSubmit);
+        btnRegisteredStudents = findViewById(R.id.btnViewRegisteredStudents);
 
 
 
@@ -93,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, student.toString() + " has been registered", Toast.LENGTH_LONG).show();
                     }
                 }).show();
+    }
+
+    private void changeActivityViewAll() {
+        Intent intent = new Intent(MainActivity.this, ViewStudents.class);
+        startActivity(intent);
     }
 
     private boolean validateData() {
