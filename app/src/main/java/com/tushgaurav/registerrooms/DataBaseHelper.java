@@ -2,10 +2,15 @@ package com.tushgaurav.registerrooms;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.Currency;
+import java.util.List;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -43,4 +48,33 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+
+    public List<Student> getRegisteredStudents() {
+        List<Student> returnList = new ArrayList<>();
+
+        String queryString = "SELECT * FROM " + TABLE_NAME;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String name = cursor.getString(1);
+                String email = cursor.getString(2);
+                String phone = cursor.getString(3);
+
+                Student newStudent = new Student(name, email, phone, 1, 'A');
+                returnList.add(newStudent);
+
+            } while (cursor.moveToNext());
+        } else {
+
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
+
 }

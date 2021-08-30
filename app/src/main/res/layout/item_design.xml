@@ -29,48 +29,48 @@
             android:id="@+id/txtName"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/imgStudent"
             android:layout_toRightOf="@+id/imgStudent"
             android:text="Name"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_toEndOf="@+id/imgStudent"
-            android:layout_marginStart="15dp" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@id/txtEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/txtName"
+            android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/txtName"
             android:layout_toRightOf="@+id/txtName"
             android:text="Email"
-            android:textSize="15sp"
-            android:layout_toEndOf="@+id/txtName"
-            android:layout_marginStart="5dp" />
+            android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/txtPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="787021864"
-            android:layout_toRightOf="@+id/imgStudent"
+            android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="55dp"
-            android:id="@+id/txtPhone"
-            android:layout_marginStart="15dp"
-            android:layout_toEndOf="@+id/imgStudent" />
+            android:layout_toEndOf="@+id/imgStudent"
+            android:layout_toRightOf="@+id/imgStudent"
+            android:text="787021864" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Floor 1, Block 2"
-            android:layout_toRightOf="@+id/txtPhone"
-            android:layout_alignBottom="@+id/txtPhone"
+            android:id="@+id/txtBlock"
+            android:layout_alignStart="@+id/txtEmail"
             android:layout_alignLeft="@+id/txtEmail"
-            android:layout_alignStart="@+id/txtEmail" />
-
+            android:layout_alignBottom="@+id/txtPhone"
+            android:layout_toRightOf="@+id/txtPhone"
+            android:text="Floor 1, Block 2" />
 
 
     </RelativeLayout>
